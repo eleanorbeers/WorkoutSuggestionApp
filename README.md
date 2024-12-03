@@ -44,3 +44,18 @@ After 200 epochs of training, my model reached a training loss of 0.397. However
 
 Due to Strava’s current limitations on data export, it’s impossible to collect large batches of running data from public users. Instead, I exported my personal data, which contained only around 200 workouts. After filtering out walking and swimming sessions, I was left with 107 running workouts. Given the discrepancy between training and test loss, it's clear that this isn’t enough data to achieve optimal model performance. However, if I could gather a larger dataset from Strava users, I could train the model on that data and make predictions based on the trends observed in other runners. This might be feasible through web scraping.
 
+## **Future Directions**
+
+The application of transformer models in workout planning holds significant potential for expansion, enabling functionality that could rival platforms such as Nike Run Club or Runna. Given the current capabilities of transformer models—particularly in tasks such as NLP—I propose the following enhancements:
+
+- **Web Scraping for Data Collection:** Utilize web scraping techniques to gather extensive datasets from platforms like Strava, enabling the training and fine-tuning of transformer models to identify patterns in marathon training workouts.
+- **Expanded Use of Transformers for Continuous Variable Prediction:**
+  - Extend the model's capability to predict continuous variables, such as distance, heart rate, and expected effort level, which could be used to refine workout suggestions.
+- **Fully Developed Workout Plans:**
+  - Expand the current model to generate comprehensive workout plans, spanning from the start of race training to race day, complete with detailed workout descriptions.
+  - Incorporate large language models (LLMs) to adapt workout plans based on user preferences, enabling interaction with a "coach" to adjust the plan as needed.
+- **Integration with Google Maps API:** Provide suggested routes for each run, tailored to the user's current location, target distance, and target elevation, by leveraging the       Google Maps API.
+- **Integration with Google Calendar API:** Offer personalized workout time suggestions based on the user's availability and the estimated duration of each workout, using the Google Calendar API.
+- **Export Functionality:** Allow users to export the generated routes, calendar files with workout times, and the full training plan in various desired formats for ease of use and sharing.
+
+
