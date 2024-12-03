@@ -64,13 +64,14 @@ The application of transformer models in workout planning holds significant pote
 This model, trained on the user's historic workout data, is designed to generate personalized marathon training workouts based on a user's inputted data for their previous week of workouts. It predicts the pace of the next run and uses that prediction to assign a distance, resulting in a tailored workout plan. It is particularly useful for runners who want to structure their training with specific pace and distance goals.
 
 #### **Sources**
-**Data:**
+
+##### **Data:**
 - Collected using workaround gathered in this [article](https://scottpdawson.com/export-strava-workout-data/)
 
-**Code:**
+##### **Code:**
 - Usage of Huggingface Transformers library
 
-**Model:**
+##### **Model:**
 - Usage of vanilla encoder-decoder transformer architecture described in Vaswani et. al's ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762) 2017 article
 - Trained on personal data
   
