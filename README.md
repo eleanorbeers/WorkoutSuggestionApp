@@ -33,4 +33,14 @@ Model Parameters:
 - Number of Layers: 4 (allows the model to capture complex relationships in the data
 - Output: A single value (output_dim = 1), representing the predicted pace
 
+## **Analysis**
+<img width="1250" alt="Screenshot 2024-12-02 at 9 16 40 PM" src="https://github.com/user-attachments/assets/2741ba10-2141-4ba4-b2b4-9c99b546b909">
+
+***Figure 1.3: Gradio-powered interactive workout generator***
+
+With only 107 valid running workouts as context, I trained an encoder-decoder model to predict the pace of my next run and derive an appropriate distance from that pace, allowing me to suggest a workout plan that reflects my recent training. Despite the small training dataset, the model performs reasonably well and generates plausible predictions. While this task is relatively simple (it provides only one workout, with pace and distance), this approach builds on algorithms already in use by apps like Runna and highlights the potential of transformer architecture in creating personalized workout plans.
+
+After 200 epochs of training, my model reached a training loss of 0.397. However, the test loss was notably higher, at 0.704. This difference suggests potential overfitting, which makes sense given the small dataset size. At the same time, the data’s complex sequential patterns may be challenging for the model to learn, suggesting underfitting. Nevertheless, when I increased the number of epochs to enhance the model's training capacity, the test loss continued to grow, indicating that overfitting due to the limited data size is likely the primary issue.
+
+Due to Strava’s current limitations on data export, it’s impossible to collect large batches of running data from public users. Instead, I exported my personal data, which contained only around 200 workouts. After filtering out walking and swimming sessions, I was left with 107 running workouts. Given the discrepancy between training and test loss, it's clear that this isn’t enough data to achieve optimal model performance. However, if I could gather a larger dataset from Strava users, I could train the model on that data and make predictions based on the trends observed in other runners. This might be feasible through web scraping.
 
