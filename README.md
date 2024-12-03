@@ -6,8 +6,18 @@ This application is designed to help me train for a marathon. The Transformer mo
 ## **Data**
 
 
-## **Model Specifications**
-While transfomer models are most commonly used for their applications in NLP tasks, this task involves a less-common usage of transformers: continuous variable prediction. The nature of my Strava data is nonlinear and is sequential (time-series). It also has aspects of micro-seasonality, as each week has longer and shorter runs within the week, progressing longer and faster over time as my training continues. The complex nature of this data justifies the usage of a more complex prediction model, which is where the usage of transformer architecture arises. The attention mechanism used in transformers makes them well-equipped to handle sequential data and generate predictions. While transformers are heavier models than a simpler model, like a multiple linear regression, my dataset is relatively small, meaning the computational load of training a more complex model with this data would also be relatively small.
+## **Model Details**
+While transformer models are most commonly used for their applications in NLP tasks, this task involves a less common usage of transformers: continuous variable prediction. My Strava data is nonlinear, sequential (time-series), and exhibits micro-seasonality, with each week including longer and shorter runs that progressively increase in distance and speed as training continues. The complex nature of this data justifies the use of a more sophisticated prediction model, which is where transformer architecture comes into play. The attention mechanism in transformers makes them well-suited to handling sequential data and generating predictions. Although transformers are more computationally intensive than simpler models, such as multiple linear regression, my dataset is relatively small, so the computational load of training a more complex model remains manageable.
 
-See specific model specifications below:
--
+To perform this task, I am using a simple Encoder-Decoder Transformer architecture. The encoder processes the inputs and extracts features, while the decoder generates predictions based on these features. The model incorporates a self-attention mechanism and multi-head attention, which are key to its effectiveness for this task. The self-attention mechanism allows each token to attend to every other token in the sequence, capturing dependencies within the data—ideal for time series. The multi-head attention mechanism enables the model to focus on different parts of the sequence simultaneously.
+
+However, Transformers do not inherently handle the order of tokens, which is important for identifying patterns in sequential data. To address this, a positional encoding is added to the input data, allowing the model to understand the relative positions of tokens within the sequence and capture position-dependent patterns.
+
+Model Parameters:
+- Input Dimensions: 5 features per data point (distance, pace, time of week, workout type, elevation gain)
+- Hidden Dimensions: 128 (large hidden layer size increases model capacity)
+- Attention Heads: 8 (allows the model to focus on different parts of the input sequence)
+- Number of Layers: 4 (allows the model to capture complex relationships in the data
+- Output: A single value (output_dim = 1), representing the predicted pace
+
+
