@@ -13,6 +13,9 @@ To perform this task, I am using a simple Encoder-Decoder Transformer architectu
 
 However, Transformers do not inherently handle the order of tokens, which is important for identifying patterns in sequential data. To address this, a positional encoding is added to the input data, allowing the model to understand the relative positions of tokens within the sequence and capture position-dependent patterns.
 
+![image](https://github.com/user-attachments/assets/2737c904-8686-436c-93bf-d2ba9b0d4abd)
+**Figure 1.1: An Encoder-Decoder transformer architecture ([source](https://blogs.nvidia.com/blog/what-is-a-transformer-model/))**
+
 Model Parameters:
 - Input Dimensions: 5 features per data point (distance, pace, time of week, workout type, elevation gain)
 - Hidden Dimensions: 128 (large hidden layer size increases model capacity)
