@@ -88,11 +88,11 @@ scaler.pkl # Pickle file containing scaler used on original data used to invert 
 README.md # Documentation and resources
 ```
 ## **Resources**
-- Encoder-Decoder Multi-Head Transformer Architecture:
+- **Encoder-Decoder Multi-Head Transformer Architecture:**
   - Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2023). *Attention is all you need*. arXiv. https://arxiv.org/abs/1706.03762
-- Transformer Usage and Time-Series Data:
+- **Transformer Usage and Time-Series Data:**
   - Lanza, E. (2023, August 2). *How to apply transformers to time series models.* Intel Tech. https://medium.com/intel-tech/how-to-apply-transformers-to-time-series-models-spacetimeformer-e452f2825d2e
   - Simhayev, E., Rasul, K., & Rogge, N. (2023, June 16). *Yes, transformers are effective for time series forecasting (+ Autoformer)*. Hugging Face. https://huggingface.co/blog/autoformer
   - Wen, Q., Zhou, T., Zhang, C., Chen, W., Ma, Z., Yan, J., & Sun, L. (2023). *Transformers in time series: A survey*. arXiv. https://arxiv.org/abs/2202.07125
-- Strava Personal Data Collection Guide:
+- **Strava Personal Data Collection Guide:**
   - Dawson, S. (2020, October 16). *How to export Strava workout data*. Scott Dawson. https://scottpdawson.com/export-strava-workout-data/
