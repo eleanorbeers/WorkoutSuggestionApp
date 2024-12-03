@@ -5,6 +5,16 @@ This application is designed to help me train for a marathon. The Transformer mo
 
 ## **Data**
 
+I collected my data from the fitness app Strava, which is popular among the running community. Strava provides detailed summaries of each workout, including effort scores, grade-adjusted pace, heart-rate zones, and more. It also offers aggregated workout summaries, the ability to connect with other users and join groups, and even beta AI features available to Pro users, which generate text summaries of each workout.
+
+![image](https://github.com/user-attachments/assets/6e23f770-311a-424d-8ce5-caa8ef9b4894)
+***Fig 1.1: Strava App Interface ([source](https://www.google.com/url?sa=i&url=https%3A%2F%2Flifehacker.com%2Fhealth%2Fstrava-is-the-best-running-app-review&psig=AOvVaw2nOBRXDAukmtOjqx3hSpoi&ust=1733281709274000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLicg9nPiooDFQAAAAAdAAAAABAh))***
+
+Since Strava does not natively support exporting data in a .csv format, I used a workaround to extract my data in this format. This [article](https://scottpdawson.com/export-strava-workout-data/) outlines the method for exporting Strava data to .csv.
+
+The raw data I extracted contained 51 columns, offering comprehensive details—from Twitter links to post workouts to total mileage. For this task, I focused on the workout details, which included the total moving time, the date of the workout, the time of day, total miles, workout type, and elevation gain. With these variables, I calculated pace by dividing moving time by the total distance. Pace serves as the target variable for this task.
+
+I filtered the raw data to exclude workouts with pace times over 20 minutes, as these were outliers in an already small dataset and likely do not represent actual running workouts. I also removed non-running activities, such as swims and walks. After filtering, I scaled the three key numeric variables: pace, distance, and elevation gain. Scaling was essential here because elevation gain, in its raw form, has a much larger scale than pace or distance. Using the raw data could have decreased model performance by diminishing the accuracy of predictions.
 
 ## **Model Details**
 While transformer models are most commonly used for their applications in NLP tasks, this task involves a less common usage of transformers: continuous variable prediction. My Strava data is nonlinear, sequential (time-series), and exhibits micro-seasonality, with each week including longer and shorter runs that progressively increase in distance and speed as training continues. The complex nature of this data justifies the use of a more sophisticated prediction model, which is where transformer architecture comes into play. The attention mechanism in transformers makes them well-suited to handling sequential data and generating predictions. Although transformers are more computationally intensive than simpler models, such as multiple linear regression, my dataset is relatively small, so the computational load of training a more complex model remains manageable.
@@ -14,7 +24,7 @@ To perform this task, I am using a simple Encoder-Decoder Transformer architectu
 However, Transformers do not inherently handle the order of tokens, which is important for identifying patterns in sequential data. To address this, a positional encoding is added to the input data, allowing the model to understand the relative positions of tokens within the sequence and capture position-dependent patterns.
 
 ![image](https://github.com/user-attachments/assets/2737c904-8686-436c-93bf-d2ba9b0d4abd)
-***Figure 1.1: An Encoder-Decoder transformer architecture ([source](https://blogs.nvidia.com/blog/what-is-a-transformer-model/))***
+***Figure 1.2: An Encoder-Decoder transformer architecture ([source](https://blogs.nvidia.com/blog/what-is-a-transformer-model/))***
 
 Model Parameters:
 - Input Dimensions: 5 features per data point (distance, pace, time of week, workout type, elevation gain)
