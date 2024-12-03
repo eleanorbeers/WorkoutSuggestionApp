@@ -30,7 +30,7 @@ Model Parameters:
 - Input Dimensions: 5 features per data point (distance, pace, time of week, workout type, elevation gain)
 - Hidden Dimensions: 128 (large hidden layer size increases model capacity)
 - Attention Heads: 8 (allows the model to focus on different parts of the input sequence)
-- Number of Layers: 4 (allows the model to capture complex relationships in the data
+- Number of Layers: 4 (allows the model to capture complex relationships in the data)
 - Output: A single value (output_dim = 1), representing the predicted pace
 
 ## **Analysis**
@@ -72,7 +72,7 @@ This model, trained on the user's historic workout data, is designed to generate
 - Usage of Huggingface Transformers library
 
 ##### **Model:**
-- Usage of vanilla encoder-decoder transformer architecture described in Vaswani et. al's ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762) 2017 article
+- Usage of encoder-decoder transformer architecture described in Vaswani et. al's ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762) 2017 article
 - Trained on personal data
   
 #### **Permissions**
